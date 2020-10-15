@@ -23,7 +23,6 @@
                         th:checked="${column.key == 'all'}"/>
                 <label th:for="${column.key}" th:text="${column.value}"></label>
             </span>
-
         </p>
 
         <p>
@@ -37,7 +36,21 @@
     <hr />
 
     <!-- TODO #4 - Loop over the search results to display all job fields. -->
+    <div class="container body-content">
 
+        <!-- TODO #5 - Fix table CSS. -->
+        <table class="job-listing" th:each="job : ${jobs}">
+            <tr>
+                ID: <span th:text="${job.Id}"></span> <br>
+                Name: <span th:text="${job.name}"></span> <br>
+                Employer: <span th:text="${job.employer}"></span> <br>
+                Location: <span th:text="${job.location}"></span> <br>
+                Position Type: <span th:text="${job.positionType}"></span> <br>
+                Skill: <span th:text="${job.coreCompetency}"></span>
+            </tr>
+        </table>
+
+    </div>
 </div>
 
 </body>
