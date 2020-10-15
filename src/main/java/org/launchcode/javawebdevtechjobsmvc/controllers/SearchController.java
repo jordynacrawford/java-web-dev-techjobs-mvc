@@ -17,9 +17,12 @@ import static org.launchcode.javawebdevtechjobsmvc.controllers.ListController.co
 @RequestMapping("search")
 public class SearchController {
 
+    String defaultChecked = "all";
+
     @RequestMapping(value = "")
     public String search(Model model) {
         model.addAttribute("columns", columnChoices);
+        model.addAttribute("defaultChecked", defaultChecked);
         return "search";
     }
 
@@ -30,12 +33,15 @@ public class SearchController {
         ArrayList<Job> jobs;
         if(searchTerm.toLowerCase().equals("all") || searchTerm.equals("")) {
             jobs = JobData.findAll();
+            defaultChecked = "all";
             model.addAttribute("title", "All Jobs");
         } else {
             jobs = JobData.findByColumnAndValue(searchType, searchTerm);
             model.addAttribute("title", "Jobs with " + columnChoices.get(searchType) + ": " + searchTerm);
+            defaultChecked = searchType;
         }
         model.addAttribute("jobs", jobs);
+        model.addAttribute("defaultChecked", defaultChecked);
 
         return "search";
     }
