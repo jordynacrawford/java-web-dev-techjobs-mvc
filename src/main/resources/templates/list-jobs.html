@@ -10,7 +10,7 @@
 
     <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
 
-    <!-- TODO #1 - Fix table CSS. -->
+    <!-- TODO #5 - Fix table CSS. -->
     <table class="job-listing" th:each="job : ${jobs}">
         <tr>
             ID: <span th:text="${job.Id}"></span> <br>
