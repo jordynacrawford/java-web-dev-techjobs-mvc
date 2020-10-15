@@ -33,10 +33,10 @@
                 <td>
                     <p>ID: <span class="data" th:text="${job.Id}"></span></p>
                     <p>Name: <span class="data" th:text="${job.name}"></span></p>
-                    <p>Employer: <span class="data" th:text="${job.employer}"></span></p>
-                    <p>Location: <span class="data" th:text="${job.location}"></span></p>
-                    <p>Position Type: <span class="data" th:text="${job.positionType}"></span></p>
-                    <p>Skill: <span class="data" th:text="${job.coreCompetency}"></span></p>
+                    <p>Employer: <a th:href="@{/list/jobs(column=employer,value=${job.employer})}" class="data" th:text="${job.employer}"></a></p>
+                    <p>Location: <a th:href="@{/list/jobs(column=location,value=${job.location})}" class="data" th:text="${job.location}"></a></p>
+                    <p>Position Type: <a th:href="@{/list/jobs(column=positionType,value=${job.positionType})}" class="data" th:text="${job.positionType}"></a></p>
+                    <p>Skill: <a th:href="@{/list/jobs(column=coreCompetency,value=${job.coreCompetency})}" class="data" th:text="${job.coreCompetency}"></a></p>
                 </td>
             </tr>
         </table>
